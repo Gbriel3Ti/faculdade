@@ -1,55 +1,68 @@
-<index.html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Calculadora de IMC</title>
-
-<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
-<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<title>Trabalhos da Faculdade</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    background:#0f172a;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 }
+
 .container{
-    background:#1e293b;
-    padding:30px;
-    border-radius:15px;
-    width:350px;
-    box-shadow:0 0 15px rgba(0,0,0,0.4);
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:20px;
+width:420px;
+box-shadow:0 0 25px rgba(0,0,0,0.35);
+color:white;
+text-align:center;
 }
-input{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-    border:none;
-    border-radius:8px;
+
+h1{
+margin-bottom:10px;
+font-size:32px;
 }
-button{
-    width:100%;
-    padding:12px;
-    background:#22c55e;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
+
+p{
+margin-bottom:30px;
+opacity:0.8;
 }
-button:hover{
-    background:#16a34a;
+
+a{
+display:block;
+text-decoration:none;
+background:#22c55e;
+color:white;
+padding:15px;
+margin:12px 0;
+border-radius:12px;
+font-size:18px;
+transition:0.3s;
 }
-#resultado{
-    margin-top:20px;
-    font-size:18px;
+
+a:hover{
+background:#16a34a;
+transform:scale(1.03);
+}
+
+small{
+display:block;
+margin-top:25px;
+opacity:0.7;
 }
 </style>
 </head>
@@ -57,37 +70,18 @@ button:hover{
 <body>
 
 <div class="container">
-    <h1>Calculadora de IMC</h1>
 
-    <label>Peso (KG):</label>
-    <input type="number" id="peso" step="0.1">
+<h1>🎓 Trabalhos da Faculdade</h1>
+<p>Projetos e atividades acadêmicas</p>
 
-    <label>Altura (m):</label>
-    <input type="number" id="altura" step="0.01">
+<a href="imc.html">💪 Calculadora IMC</a>
+<a href="tabuada.html">📚 Tabuada</a>
+<a href="media.html">📝 Média Escolar</a>
+<a href="#">🚀 Em breve...</a>
 
-    <button py-click="calcular_imc()">Calcular</button>
+<small>Gabriel Ribeiro</small>
 
-    <div id="resultado"></div>
 </div>
-
-<py-script>
-from pyscript import Element
-
-def calcular_imc():
-    peso = float(Element("peso").element.value)
-    altura = float(Element("altura").element.value)
-
-    imc = peso / (altura ** 2)
-
-    if imc < 18.5:
-        status = "Abaixo do peso"
-    elif imc < 24.9:
-        status = "Peso normal"
-    else:
-        status = "Sobrepeso"
-
-    Element("resultado").write(f"Seu IMC é: {imc:.2f}<br>{status}")
-</py-script>
 
 </body>
 </html>
