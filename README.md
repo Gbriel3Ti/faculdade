@@ -1,2 +1,93 @@
-teste
+<index.html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Calculadora de IMC</title>
+
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+.container{
+    background:#1e293b;
+    padding:30px;
+    border-radius:15px;
+    width:350px;
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+}
+button{
+    width:100%;
+    padding:12px;
+    background:#22c55e;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+button:hover{
+    background:#16a34a;
+}
+#resultado{
+    margin-top:20px;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Calculadora de IMC</h1>
+
+    <label>Peso (KG):</label>
+    <input type="number" id="peso" step="0.1">
+
+    <label>Altura (m):</label>
+    <input type="number" id="altura" step="0.01">
+
+    <button py-click="calcular_imc()">Calcular</button>
+
+    <div id="resultado"></div>
+</div>
+
+<py-script>
+from pyscript import Element
+
+def calcular_imc():
+    peso = float(Element("peso").element.value)
+    altura = float(Element("altura").element.value)
+
+    imc = peso / (altura ** 2)
+
+    if imc < 18.5:
+        status = "Abaixo do peso"
+    elif imc < 24.9:
+        status = "Peso normal"
+    else:
+        status = "Sobrepeso"
+
+    Element("resultado").write(f"Seu IMC é: {imc:.2f}<br>{status}")
+</py-script>
+
+</body>
+</html>
