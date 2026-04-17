@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Projeto Glassmorphism</title>
+    <style>
+        /* Reset básico e centralização */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* Fundo vibrante para destacar o efeito de transparência e desfoque */
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            /* Suas propriedades originais + atualizações */
+            background: rgba(255, 255, 255, 0.08);
+            -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            
+            /* Melhoria na responsividade */
+            width: 90%;
+            max-width: 420px;
+            
+            /* Borda sutil para dar efeito de brilho no vidro */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            
+            /* Sombra projetada */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            
+            color: white;
+            text-align: center;
+            
+            /* Efeito suave de movimento */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Efeito de interação para o portfólio */
+        .container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: #0f3460;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Projeto GitHub</h1>
+        <p>Este é o meu componente customizado com efeito de vidro fosco (Glassmorphism). Perfeito para dashboards e telas de login modernas.</p>
+        <a href="#" class="btn">Saiba Mais</a>
+    </div>
+
+</body>
+</html>
 
